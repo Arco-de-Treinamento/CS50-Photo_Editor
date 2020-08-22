@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/CurrentLine">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:orientation="horizontal"
+      android:gravity="right"
+      android:layout_margin="8dp"
+      android:id="@+id/option_bar">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:onClick="applyNormal"
+        android:text="RETURN"
+        android:textColor="@color/Foreground"
+        android:background="@null"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:onClick="saveImage"
+        android:text="SAVE"
+        android:textColor="@color/Foreground" />
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/filtersBar"
+    android:layout_below="@+id/option_bar"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+      android:id="@+id/image_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      android:src="@drawable/baseline_landscape_black_48"
+      android:tint="@color/Foreground"/>
+
+  </LinearLayout>
+
+  <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:id="@+id/filtersBar"
+    app:cardBackgroundColor="@color/Background"
+    app:cardElevation="16dp">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp"
+      android:orientation="vertical"
+      android:gravity="center">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="8dp"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:id="@+id/button_choose"
+            android:onClick="choosePhoto"
+            android:src="@drawable/baseline_photo_library_black_24"
+            android:tint="@color/Foreground"
+            android:background= "@null"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:onClick="applyWithBorder"
+            android:src="@drawable/baseline_panorama_fish_eye_black_24"
+            android:tint="@color/Foreground"
+            android:background= "@null"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:onClick="applySquare"
+            android:src="@drawable/baseline_crop_din_black_24"
+            android:tint="@color/Foreground"
+            android:background= "@null"/>
+
+
+      </LinearLayout>
+
+      <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/CurrentLine"
+            app:cardCornerRadius="4dp"
+            android:layout_marginRight="8dp">
+
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="4dp">
+
+              <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="applySepia"
+                android:src="@drawable/serpia"
+                android:background="@null"/>
+
+              <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/Foreground"
+                android:text="SEPIA"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever">
+
+              </TextView>
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/CurrentLine"
+            app:cardCornerRadius="4dp"
+            android:layout_marginRight="8dp">
+
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="4dp">
+
+              <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="applyToon"
+                android:src="@drawable/toon"
+                android:background="@null"/>
+
+              <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/Foreground"
+                android:text="TOON"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever">
+
+              </TextView>
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/CurrentLine"
+            app:cardCornerRadius="4dp"
+            android:layout_marginRight="8dp">
+
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="4dp">
+
+              <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="applySketch"
+                android:src="@drawable/sketch"
+                android:background="@null"/>
+
+              <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/Foreground"
+                android:text="SKETCH"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever">
+
+              </TextView>
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/CurrentLine"
+            app:cardCornerRadius="4dp"
+            android:layout_marginRight="8dp">
+
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="4dp">
+
+              <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="applyBlur"
+                android:src="@drawable/blur"
+                android:background="@null"/>
+
+              <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/Foreground"
+                android:text="BLUR"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever">
+
+
+              </TextView>
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/CurrentLine"
+            app:cardCornerRadius="4dp"
+            android:layout_marginRight="8dp">
+
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="4dp">
+
+              <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="applyKuwahara"
+                android:src="@drawable/kuwahar"
+                android:background="@null"/>
+
+              <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/Foreground"
+                android:text="KUWAHARA"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever">
+
+              </TextView>
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/CurrentLine"
+            app:cardCornerRadius="4dp"
+            android:layout_marginRight="8dp">
+
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="4dp">
+
+              <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="applyPixelation"
+                android:src="@drawable/pixel"
+                android:background="@null"/>
+
+              <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/Foreground"
+                android:text="PIXELATION"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever">
+
+              </TextView>
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/CurrentLine"
+            app:cardCornerRadius="4dp"
+            android:layout_marginRight="8dp">
+
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="4dp">
+
+              <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="applyGrayScale"
+                android:src="@drawable/grayscale"
+                android:background="@null"/>
+
+              <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/Foreground"
+                android:text="GRAYSCALE"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever">
+
+              </TextView>
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/CurrentLine"
+            app:cardCornerRadius="4dp"
+            android:layout_marginRight="8dp">
+
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="4dp">
+
+              <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="applySwirl"
+                android:src="@drawable/swirl"
+                android:background="@null"/>
+
+              <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/Foreground"
+                android:text="SWIRL"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever">
+
+              </TextView>
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/CurrentLine"
+            android:elevation="8dp"
+            app:cardCornerRadius="4dp"
+            android:layout_marginRight="8dp">
+
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="4dp">
+
+              <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="applyVignette"
+                android:src="@drawable/vignette"
+                android:background="@null"/>
+
+              <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/Foreground"
+                android:text="VIGNETTE"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever">
+
+              </TextView>
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+      </HorizontalScrollView>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:src="@drawable/baseline_exposure_black_24"
+        android:tint="@color/Foreground">
+
+      </androidx.appcompat.widget.AppCompatImageView>
+
+      <SeekBar
+        android:id="@+id/seekBarContrast"
+        android:layout_width="match_parent"
+        android:thumbTint="@color/Foreground"
+        android:progressTint="@color/Foreground"
+        android:layout_height="50dp"
+        android:max="20"/>
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="8dp"
+          android:src="@drawable/baseline_wb_sunny_black_24"
+          android:tint="@color/Foreground">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+        <SeekBar
+          android:id="@+id/seekBarBrightest"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:thumbTint="@color/Foreground"
+          android:progressTint="@color/Foreground"
+          android:max="20"/>
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
